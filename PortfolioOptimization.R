@@ -11,14 +11,14 @@ pacman::p_load(tidyverse, quantmod,
 ###########################################################################
 # Getting Time Series ------------------------------------------------------
 
-tickers <- c("ITSA4.SA", "TAEE11.SA", "ABEV3.SA", "BBAS3.SA", "BRSR6.SA")
+tickers <- c("ITSA4.SA", "TAEE11.SA", "ABEV3.SA", "BBAS3.SA", "WEGE3.SA", "MGLU3.SA")
 
 Prices <- getSymbols(tickers,
                      auto.assign = TRUE,
                      warnings = FALSE,
                      from = as.Date("2016-12-01"),
                      src = "yahoo") %>%
-    map(~Cl(get(.))) %>% reduce(merge) 
+    map(~Cl(get(.))) %>% reduce(merge) %>% `colnames<-`(tickers)
 
 
 ## Se preferir, converta os preços para períodicidade semanal

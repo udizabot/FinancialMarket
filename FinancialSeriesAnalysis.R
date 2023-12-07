@@ -10,7 +10,7 @@
 pacman::p_load(tidyverse, quantmod, 
                PerformanceAnalytics, PortfolioAnalytics)
 
-# atualizado
+
 
 ###########################################################################
 # Getting Time Series ------------------------------------------------------
